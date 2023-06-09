@@ -34,13 +34,13 @@ CREATE TABLE sales_contracts (
     FOREIGN KEY (VIN) REFERENCES vehicles(VIN),
     customer_name varchar(50) NOT NULL,
     sales_coordinator varchar(50) NOT NULL,
-    FOREIGN KEY (price) REFERENCES vehicles(price),
-    FOREIGN KEY (year) REFERENCES vehicles(year),
-    FOREIGN KEY (make) REFERENCES vehicles(make),
-    FOREIGN KEY (model) REFERENCES vehicles(model),
-    FOREIGN KEY (color) REFERENCES vehicles(color)
+    price int NOT NULL,
+    year int NOT NULL,
+    make varchar(50) NOT NULL,
+    model varchar(50) NOT NULL,
+    color varchar(50) NOT NULL,
+    odometer int NOT NULL
 );
-
 
 -- Table 5
 CREATE TABLE lease_contracts (
@@ -48,12 +48,14 @@ CREATE TABLE lease_contracts (
     FOREIGN KEY (VIN) REFERENCES vehicles(VIN),
     customer_name varchar(50) NOT NULL,
     lease_coordinator varchar(50) NOT NULL,
-    FOREIGN KEY (price) REFERENCES vehicles(price),
-    FOREIGN KEY (year) REFERENCES vehicles(year),
-    FOREIGN KEY (make) REFERENCES vehicles(make),
-    FOREIGN KEY (model) REFERENCES vehicles(model),
-    FOREIGN KEY (color) REFERENCES vehicles(color)
+   price int NOT NULL,
+    year int NOT NULL,
+    make varchar(50) NOT NULL,
+    model varchar(50) NOT NULL,
+    color varchar(50) NOT NULL,
+    odometer int NOT NULL
 );
+
 
 
 -- POPULATE SAMPLE DATA 
@@ -70,11 +72,17 @@ INSERT INTO vehicles
 VALUES(10202,"Kia","Stinger","black",2020, "sedan",5000,60000, 1);
 INSERT INTO vehicles
 VALUES (10203,"Chevy","Silverado", "blue",2018, "truck",12000,40000,0);
+INSERT INTO vehicles
+VALUES (10204, "Honda","Civic","white",2019,"sedan",3000,45000,1);
 
 -- inventory
 INSERT INTO inventory
 VALUES(1,10203);
 INSERT INTO inventory
 VALUES(2, 10201);
+
+-- sales_contracts
+INSERT INTO sales_contracts
+VALUES (1,10202,"Angel Gonzalez","Jack Freeman",60000,2020,"Kia","Stinger","black", 5000);
 
 
