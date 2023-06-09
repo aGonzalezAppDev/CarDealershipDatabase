@@ -8,11 +8,6 @@ CREATE TABLE dealerships (
     address varchar(50) NOT NULL,
     phone varchar(12) NOT NULL
 );
-INSERT INTO dealerships
-VALUES (1, "Best Dealership", "123 Memorial Drive, Hackensack, NJ","973-546-7656");
-INSERT INTO dealerships
-VALUES (2, "Okay Dealership", "453 Paramus Ava, Paramus, NJ", "201-854-0926");
-
 
 -- Table 2
 CREATE TABLE vehicles (
@@ -26,17 +21,11 @@ CREATE TABLE vehicles (
     price int NOT NULL,
     sold bool NOT NULL
 );
-INSERT INTO vehicles
-VALUES(10201, "Toyota", "Camry","silver",2015,"sedan",10000,12000, 0);
-INSERT INTO vehicles
-VALUES(10202,"Kia","Stinger","black",2020, "sedan",5000,60000, 1);
-INSERT INTO vehicles
-VALUES (10203,"Chevy","Silverado", "blue",2018, "truck",12000,40000,0);
 
 -- Table 3
 CREATE TABLE inventory (
-	dealership_id int,
-    VIN int
+	FOREIGN KEY (dealership_id) REFERENCES dealerships(dealership_id),
+    FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
 
 -- Table 4
@@ -52,6 +41,7 @@ CREATE TABLE sales_contracts (
     FOREIGN KEY (color) REFERENCES vehicles(color)
 );
 
+
 -- Table 5
 CREATE TABLE lease_contracts (
 	lease_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -65,5 +55,26 @@ CREATE TABLE lease_contracts (
     FOREIGN KEY (color) REFERENCES vehicles(color)
 );
 
+
+-- POPULATE SAMPLE DATA 
+-- dealerships
+INSERT INTO dealerships
+VALUES (1, "Best Dealership", "123 Memorial Drive, Hackensack, NJ","973-546-7656");
+INSERT INTO dealerships
+VALUES (2, "Okay Dealership", "453 Paramus Ava, Paramus, NJ", "201-854-0926");
+
+-- vehicles
+INSERT INTO vehicles
+VALUES(10201, "Toyota", "Camry","silver",2015,"sedan",10000,12000, 0);
+INSERT INTO vehicles
+VALUES(10202,"Kia","Stinger","black",2020, "sedan",5000,60000, 1);
+INSERT INTO vehicles
+VALUES (10203,"Chevy","Silverado", "blue",2018, "truck",12000,40000,0);
+
+-- inventory
+INSERT INTO inventory
+VALUES(1,10203);
+INSERT INTO inventory
+VALUES(2, 10201);
 
 
