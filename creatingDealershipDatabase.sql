@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS cardealershipdatabase;
+
 CREATE DATABASE cardealershipdatabase;
 
 -- Table 1
@@ -24,6 +25,8 @@ CREATE TABLE vehicles (
 
 -- Table 3
 CREATE TABLE inventory (
+	dealerships_id int PRIMARY KEY NOT NULL,
+    VIN int NOT NULL,
 	FOREIGN KEY (dealership_id) REFERENCES dealerships(dealership_id),
     FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
@@ -85,4 +88,6 @@ VALUES(2, 10201);
 INSERT INTO sales_contracts
 VALUES (1,10202,"Angel Gonzalez","Jack Freeman",60000,2020,"Kia","Stinger","black", 5000);
 
-
+-- lease contracts 
+INSERT INTO lease_contracts
+VALUES (1,10204,"Ronald Chase","Mary Rose",45000,2019,"Honda","Civic","white",3000);
