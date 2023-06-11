@@ -25,7 +25,7 @@ CREATE TABLE vehicles (
 
 -- Table 3
 CREATE TABLE inventory (
-	dealerships_id int PRIMARY KEY NOT NULL,
+	dealership_id int PRIMARY KEY NOT NULL,
     VIN int NOT NULL,
 	FOREIGN KEY (dealership_id) REFERENCES dealerships(dealership_id),
     FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
