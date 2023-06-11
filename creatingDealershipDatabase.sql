@@ -42,7 +42,8 @@ CREATE TABLE sales_contracts (
     make varchar(50) NOT NULL,
     model varchar(50) NOT NULL,
     color varchar(50) NOT NULL,
-    odometer int NOT NULL
+    odometer int NOT NULL,
+    sales_date datetime NOT NULL
 );
 
 -- Table 5
@@ -56,7 +57,8 @@ CREATE TABLE lease_contracts (
     make varchar(50) NOT NULL,
     model varchar(50) NOT NULL,
     color varchar(50) NOT NULL,
-    odometer int NOT NULL
+    odometer int NOT NULL,
+    lease_date datetime NOT NULL
 );
 
 
@@ -86,8 +88,8 @@ VALUES(2, 10201);
 
 -- sales_contracts
 INSERT INTO sales_contracts
-VALUES (1,10202,"Angel Gonzalez","Jack Freeman",60000,2020,"Kia","Stinger","black", 5000);
+VALUES (1,10202,"Angel Gonzalez","Jack Freeman",60000,2020,"Kia","Stinger","black", 5000, 2023-07-04);
 
 -- lease contracts 
 INSERT INTO lease_contracts
-VALUES (1,10204,"Ronald Chase","Mary Rose",45000,2019,"Honda","Civic","white",3000);
+VALUES (1,10204,"Ronald Chase","Mary Rose",45000,2019,"Honda","Civic","white",3000, 2020-09-08);
